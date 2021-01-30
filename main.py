@@ -5,6 +5,7 @@ import urllib.request
 import datetime
 import csv
 import pprint
+import os
 
 def getData(pref,date):
 	pref = urllib.parse.quote_plus(pref)
@@ -15,6 +16,7 @@ def getData(pref,date):
 	return jsondata
 
 def getKanagawaData(date):
+	os.remove("Data.csv")
 	url = "https://www.pref.kanagawa.jp/osirase/1369/data/csv/patient.csv"
 	savename = "Data.csv"
 	urllib.request.urlretrieve(url,savename)
