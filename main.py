@@ -12,6 +12,11 @@ def getData(pref,date):
 	jsondata = response.json()
 	return jsondata
 
+def getKanagawaData(date)
+	url = "https://www.pref.kanagawa.jp/osirase/1369/data/csv/patient.csv"
+	savename = "Data.csv"
+	urllib.request.urlretrieve(url,savename)
+
 #ここから下はデバック用です。
 data = getData("神奈川県","20201212")
 print(data)
