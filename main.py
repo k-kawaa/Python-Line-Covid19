@@ -1,7 +1,13 @@
 import requests
 import json 
+import urllib
 
-url = "https://opendata.corona.go.jp/api/Covid19JapanAll"
-response = requests.get(url)
-jsondata = response.json()
-print(jsondata)
+def getData(pref,date):
+	pref = urllib.parse.quote_plus(pref)
+	date = urllib.parse.quote_plus(date)
+	url = "https://opendata.corona.go.jp/api/Covid19JapanAll?" + "date=" + date + "&" + "dataName=" + pref
+	response = requests.get(url)
+	jsondata = response.json()
+	print(jsondata)
+
+getData("神奈川県","20201212")	
